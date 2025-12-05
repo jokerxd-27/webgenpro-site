@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TrendyMart - Your Destination for Style & Tech</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://image.pollinations.ai">
+    <style>
+        :root {
+            --primary-color: #6366F1; /* Indigo 500 */
+            --secondary-color: #8B5CF6; /* Violet 500 */
+            --accent-color: #EC4899; /* Pink 500 */
+            --text-color-light: #E2E8F0; /* Slate 200 */
+            --text-color-dark: #94A3B8; /* Slate 400 */
+            --background-darker: #0F172A; /* Slate 900 */
+            --background-dark: #1E293B; /* Slate 800 */
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--background-darker);
+            color: var(--text-color-light);
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
+
+        /* Custom scrollbar for better aesthetics */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--background-darker);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--primary-color);
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--secondary-color);
+        }
+
+        /* Glassmorphism effect */
+        .glassmorphism {
+            background: rgba(30, 41, 59, 0.4); /* Slate 800 with transparency */
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(71, 85, 105, 0.3); /* Slate 600 with transparency */
+            border-radius: 12px;
+        }
+
+        /* Custom utility classes for animations if needed beyond Tailwind's direct utility classes */
+        /* For this award-winning design, hover effects and transformations handled by Tailwind are sufficient. */
+    </style>
+</head>
+<body class="antialiased overflow-x-hidden">
+
+    <!-- Header -->
+    <header class="fixed top-0 left-0 right-0 z-50 py-4 px-4 md:px-8 lg:px-16 glassmorphism border-b border-gray-700/50">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="#" class="flex items-center space-x-2 text-white text-2xl font-bold">
+                <i class="fas fa-store-alt text-violet-400"></i>
+                <span>TrendyMart</span>
+            </a>
+
+            <nav class="hidden lg:flex space-x-8 text-lg font-medium">
+                <a href="#categories" class="text-gray-200 hover:text-violet-400 transition-colors duration-200">Categories</a>
+                <a href="#products" class="text-gray-200 hover:text-violet-400 transition-colors duration-200">New Arrivals</a>
+                <a href="#about" class="text-gray-200 hover:text-violet-400 transition-colors duration-200">About Us</a>
+                <a href="#contact" class="text-gray-200 hover:text-violet-400 transition-colors duration-200">Contact</a>
+            </nav>
+
+            <div class="flex items-center space-x-6">
+                <button aria-label="Search" class="relative text-gray-200 hover:text-violet-400 transition-colors duration-200 focus:outline-none">
+                    <i class="fas fa-search text-xl"></i>
+                </button>
+                <button aria-label="Shopping Cart" class="relative text-gray-200 hover:text-violet-400 transition-colors duration-200 focus:outline-none">
+                    <i class="fas fa-shopping-cart text-xl"></i>
+                    <span class="absolute -top-2 -right-2 bg-pink-500 text-white text-xs px-2 py-0.5 rounded-full font-bold leading-none">3</span>
+                </button>
+                <button aria-label="User Account" class="relative text-gray-200 hover:text-violet-400 transition-colors duration-200 focus:outline-none">
+                    <i class="fas fa-user-circle text-xl"></i>
+                </button>
+                <button id="mobile-menu-button" aria-label="Open Mobile Menu" class="lg:hidden text-gray-200 hover:text-violet-400 transition-colors duration-200 focus:outline-none">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu (Hidden by default) -->
+        <div id="mobile-menu" class="lg:hidden fixed inset-0 bg-slate-900/90 backdrop-blur-md z-40 hidden flex flex-col items-center justify-center space-y-8 text-2xl font-bold transition-transform duration-300 ease-in-out">
+            <button id="close-mobile-menu" aria-label="Close Mobile Menu" class="absolute top-6 right-6 text-gray-200 hover:text-violet-400 focus:outline-none">
+                <i class="fas fa-times text-3xl"></i>
+            </button>
+            <a href="#categories" class="text-gray-200 hover:text-violet-400 transition-colors duration-200 block" onclick="document.getElementById('mobile-menu').classList.add('hidden'); document.body.classList.remove('overflow-hidden')">Categories</a>
+            <a href="#products" class="text-gray-200 hover:text-violet-400 transition-colors duration-200 block" onclick="document.getElementById('mobile-menu').classList.add('hidden'); document.body.classList.remove('overflow-hidden')">New Arrivals</a>
+            <a href="#about" class="text-gray-200 hover:text-violet-400 transition-colors duration-200 block" onclick="document.getElementById('mobile-menu').classList.add('hidden'); document.body.classList.remove('overflow-hidden')">About Us</a>
+            <a href="#contact" class="text-gray-200 hover:text-violet-400 transition-colors duration-200 block" onclick="document.getElementById('mobile-menu').classList.add('hidden'); document.body.classList.remove('overflow-hidden')">Contact</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="relative h-screen flex items-center justify-center text-center overflow-hidden pt-16 md:pt-0">
+            <img src="https://image.pollinations.ai/prompt/cyberpunk%20fashion%20futuristic%20city%20lights%20neon%20clothing%20tech%20accessories%20dynamic%20shot?width=1920&height=1080&nologo=true"
+                 alt="Hero background with futuristic fashion and tech in a neon city"
+                 class="absolute inset-0 w-full h-full object-cover z-0">
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/50 to-transparent z-10"></div>
+            <div class="relative z-20 text-white p-8 max-w-4xl mx-auto">
+                <h1 class="text-4xl md:text-6xl font-extrabold leading-tight mb-6 drop-shadow-lg animate__animated animate__fadeInDown">
+                    Unleash Your Style. Embrace the Future.
+                </h1>
+                <p class="text-lg md:text-xl mb-10 opacity-90 drop-shadow-md animate__animated animate__fadeInUp animate__delay-1s">
+                    Discover cutting-edge fashion, must-have accessories, and the latest gadgets. TrendyMart is your curated destination for all things modern.
+                </p>
+                <a href="#products" class="inline-block bg-gradient-to-r from-violet-600 to-indigo-600 hover:from-violet-700 hover:to-indigo-700 text-white text-lg md:text-xl font-bold py-3 px-8 rounded-full shadow-lg transform hover:scale-105 transition-all duration-300 animate__animated animate__zoomIn animate__delay-2s">
+                    Explore Collections
+                    <i class="fas fa-arrow-right ml-2"></i>
+                </a>
+            </div>
+        </section>
+
+        <!-- Category Showcase -->
+        <section id="categories" class="py-16 md:py-24 px-4 md:px-8 lg:px-16 bg-slate-900">
+            <div class="container mx-auto">
+                <h2 class="text-3xl md:text-5xl font-extrabold text-center mb-12 md:mb-16 text-white bg-clip-text text-transparent bg-gradient-to-r from-violet-400 to-pink-400">
+                    Discover What's Trending
+                </h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
+                    <div class="glassmorphism p-6 flex flex-col items-center text-center group transform hover:scale-105 transition-all duration-300">
+                        <div class="relative w-full h-64 mb-6 overflow-hidden rounded-lg">
+                            <img src="https://image.pollinations.ai/prompt/futuristic%20fashion%20clothing%20model%20urban%20setting?width=600&height=400&nologo=true"
+                                 alt="Futuristic Clothing Collection"
+                                 class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                                 loading="lazy" decoding="async">
+                            <div class="absolute inset-0 bg-gradient-to-t from-slate-900/70 to-transparent"></div>
+                        </div>
+                        <h3 class="text-2xl font-semibold text-white mb-3">Apparel</h3>
+                        <p class="text-gray-300 mb-6">Redefine your wardrobe with our selection of modern, comfortable, and stylish clothing.</p>
+                        <a href="#" class="text-violet-400 hover:text-pink-400 font-semibold flex items-center group-hover:underline transition-colors duration-200">
+                            Shop Now <i class="fas fa-arrow-right ml-2 text-sm group-hover:translate-x-1 transition-transform"></i>
+                        </a>
+                    </div>
+
+                    <div class="glassmorphism p-6 flex flex-col items-center text-center group transform hover:scale-105 transition-all duration-300">
+                        <div class="relative w-full h-64 mb-6 overflow-hidden rounded-lg">
+                            <img src="https://image.pollinations.ai/prompt/stylish%20modern%20accessories%20jewelry%20bags%20watches%20minimalist%20background?width=600&height=400&nologo=true"
+                                 alt="Stylish Modern Accessories"
+                                 class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                                 loading="lazy" decoding="async">
+                            <div class="absolute inset-0 bg-gradient-to-t from-slate-900/70 to-transparent"></div>
+                        </div>
+                        <h3 class="text-2xl font-semibold text-white mb-3">Accessories</h3>
+                        <p class="text-gray-300 mb-6">Complete your look with our unique range of bags, jewelry, and smart wearables.</p>
+                        <a href="#" class="text-violet-400 hover:text-pink-400 font-semibold flex items-center group-hover:underline transition-colors duration-200">
+                            Browse Collection <i class="fas fa-arrow-right ml-2 text-sm group-hover:translate-x-1 transition-transform"></i>
+                        </a>
+                    </div>
+
+                    <div class="glassmorphism p-6 flex flex-col items-center text-center group transform hover:scale-105 transition-all duration-300">
+                        <div class="relative w-full h-64 mb-6 overflow-hidden rounded-lg">
+                            <img src="https://image.pollinations.ai/prompt/futuristic%20tech%20gadgets%20smartphones%20drones%20headphones%20neon%20lights%20cyberpunk%20style?width=600&height=400&nologo=true"
+                                 alt="Cutting-edge Gadgets"
+                                 class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                                 loading="lazy" decoding="async">
+                            <div class="absolute inset-0 bg-gradient-to-t from-slate-900/70 to-transparent"></div>
+                        </div>
+                        <h3 class="text-2xl font-semibold text-white mb-3">Gadgets</h3>
+                        <p class="text-gray-300 mb-6">Stay ahead with the latest in personal tech – from smart devices to essential electronics.</p>
+                        <a href="#" class="text-violet-400 hover:text-pink-400 font-semibold flex items-center group-hover:underline transition-colors duration-200">
+                            Explore Tech <i class="fas fa-arrow-right ml-2 text-sm group-hover:translate-x-1 transition-transform"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- New Arrivals / Featured Products -->
+        <section id="products" class="py-16 md:py-24 px-4 md:px-8 lg:px-16 bg-slate-800">
+            <div class="container mx-auto">
+                <h2 class="text-3xl md:text-5xl font-extrabold text-center mb-12 md:mb-16 text-white bg-clip-text text-transparent bg-gradient-to-r from-pink-400 to-indigo-400">
+                    Fresh Arrivals You'll Love
+                </h2>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <!-- Product Card 1 -->
+                    <div class="glassmorphism rounded-lg overflow-hidden shadow-lg p-6 flex flex-col group hover:shadow-xl transition-all duration-300">
+                        <div class="relative h-64 mb-4 overflow-hidden rounded-md">
+                            <img src="https://image.pollinations.ai/prompt/futuristic%20techwear%20jacket%20dark%20background?width=400&height=400&nologo=true"
+                                 alt="Urban Tech Jacket"
+                                 class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                                 loading="lazy" decoding="async">
+                            <div class="absolute top-2 right-2 bg-gradient-to-br from-purple-500 to-pink-500 text-white text-xs font-semibold px-3 py-1 rounded-full">New</div>
+                        </div>
+                        <h3 class="text-xl font-semibold text-white mb-2">Urban Tech Jacket</h3>
+                        <p class="text-gray-400 text-sm mb-4 line-clamp-2">Sleek design with weather-resistant fabric, perfect for the modern explorer.</p>
+                        <div class="flex items-center justify-between mt-auto">
+                            <span class="text-2xl font-bold text-violet-400">$129.99</span>
+                            <button class="bg-gradient-to-r from-violet-600 to-indigo-600 text-white px-4 py-2 rounded-full hover:from-violet-700 hover:to-indigo-700 transition-all duration-300">
+                                <i class="fas fa-plus mr-1"></i> Add
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Product Card 2 -->
+                    <div class="glassmorphism rounded-lg overflow-hidden shadow-lg p-6 flex flex-col group hover:shadow-xl transition-all duration-300">
+                        <div class="relative h-64 mb-4 overflow-hidden rounded-md">
+                            <img src="https://image.pollinations.ai/prompt/minimalist%20smartwatch%20sleek%20design%20black%20background?width=400&height=400&nologo=true"
+                                 alt="Aura Smartwatch Pro"
+                                 class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                                 loading="lazy" decoding="async">
+                            <div class="absolute top-2 right-2 bg-gradient-to-br from-green-400 to-teal-400 text-white text-xs font-semibold px-3 py-1 rounded-full">Hot</div>
+                        </div>
+                        <h3 class="text-xl font-semibold text-white mb-2">Aura Smartwatch Pro</h3>
+                        <p class="text-gray-400 text-sm mb-4 line-clamp-2">Monitor your health and stay connected with this elegant, feature-rich smartwatch.</p>
+                        <div class="flex items-center justify-between mt-auto">
+                            <span class="text-2xl font-bold text-violet-400">$199.99</span>
+                            <button class="bg-gradient-to-r from-violet-600 to-indigo-600 text-white px-4 py-2 rounded-full hover:from-violet-700 hover:to-indigo-700 transition-all duration-300">
+                                <i class="fas fa-plus mr-1"></i> Add
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Product Card 3 -->
+                    <div class="glassmorphism rounded-lg overflow-hidden shadow-lg p-6 flex flex-col group hover:shadow-xl transition-all duration-300">
+                        <div class="relative h-64 mb-4 overflow-hidden rounded-md">
+                            <img src="https://image.pollinations.ai/prompt/wireless%20earbuds%20charging%20case%20futuristic%20design?width=400&height=400&nologo=true"
+                                 alt="Nebula Wireless Earbuds"
+                                 class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                                 loading="lazy" decoding="async">
+                            <div class="absolute top-2 right-2 bg-gradient-to-br from-orange-400 to-red-400 text-white text-xs font-semibold px-3 py-1 rounded-full">Sale</div>
+                        </div>
+                        <h3 class="text-xl font-semibold text-white mb-2">Nebula Wireless Earbuds</h3>
+                        <p class="text-gray-400 text-sm mb-4 line-clamp-2">Immersive audio experience with active noise cancellation and ergonomic fit.</p>
+                        <div class="flex items-center justify-between mt-auto">
+                            <span class="text-2xl font-bold text-violet-400">$89.99</span>
+                            <button class="bg-gradient-to-r from-violet-600 to-indigo-600 text-white px-4 py-2 rounded-full hover:from-violet-700 hover:to-indigo-700 transition-all duration-300">
+                                <i class="fas fa-plus mr-1"></i> Add
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Product Card 4 -->
+                    <div class="glassmorphism rounded-lg overflow-hidden shadow-lg p-6 flex flex-col group hover:shadow-xl transition-all duration-300">
+                        <div class="relative h-64 mb-4 overflow-hidden rounded-md">
+                            <img src="https://image.pollinations.ai/prompt/stylish%20minimalist%20backpack%20laptop%20bag%20urban%20setting?width=400&height=400&nologo=true"
+                                 alt="Voyager Laptop Backpack"
+                                 class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                                 loading="lazy" decoding="async">
+                            <div class="absolute top-2 right-2 bg-gradient-to-br from-blue-400 to-cyan-400 text-white text-xs font-semibold px-3 py-1 rounded-full">Best Seller</div>
+                        </div>
+                        <h3 class="text-xl font-semibold text-white mb-2">Voyager Laptop Backpack</h3>
+                        <p class="text-gray-400 text-sm mb-4 line-clamp-2">Functional and sleek, designed to carry your essentials with ultimate comfort.</p>
+                        <div class="flex items-center justify-between mt-auto">
+                            <span class="text-2xl font-bold text-violet-400">$79.99</span>
+                            <button class="bg-gradient-to-r from-violet-600 to-indigo-600 text-white px-4 py-2 rounded-full hover:from-violet-700 hover:to-indigo-700 transition-all duration-300">
+                                <i class="fas fa-plus mr-1"></i> Add
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center mt-16">
+                    <a href="#" class="inline-block bg-gradient-to-r from-pink-500 to-orange-500 hover:from-pink-600 hover:to-orange-600 text-white text-lg font-bold py-3 px-8 rounded-full shadow-lg transform hover:scale-105 transition-all duration-300">
+                        View All Products
+                        <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Why Choose Us / Value Proposition -->
+        <section id="about" class="py-16 md:py-24 px-4 md:px-8 lg:px-16 bg-slate-900">
+            <div class="container mx-auto">
+                <h2 class="text-3xl md:text-5xl font-extrabold text-center mb-12 md:mb-16 text-white bg-clip-text text-transparent bg-gradient-to-r from-violet-400 to-indigo-400">
+                    Why Choose TrendyMart?
+                </h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
+                    <!-- Feature 1 -->
+                    <div class="glassmorphism p-8 text-center flex flex-col items-center group transform hover:-translate-y-2 transition-transform duration-300">
+                        <div class="p-4 rounded-full bg-gradient-to-br from-violet-500 to-indigo-500 mb-6 shadow-xl group-hover:from-violet-600 group-hover:to-indigo-600 transition-all">
+                            <i class="fas fa-rocket text-4xl text-white"></i>
+                        </div>
+                        <h3 class="text-2xl font-semibold text-white mb-3">Cutting-Edge Selection</h3>
+                        <p class="text-gray-300 leading-relaxed">We constantly curate the latest trends in fashion and technology, ensuring you're always ahead.</p>
+                    </div>
+
+                    <!-- Feature 2 -->
+                    <div class="glassmorphism p-8 text-center flex flex-col items-center group transform hover:-translate-y-2 transition-transform duration-300">
+                        <div class="p-4 rounded-full bg-gradient-to-br from-pink-500 to-orange-500 mb-6 shadow-xl group-hover:from-pink-600 group-hover:to-orange-600 transition-all">
+                            <i class="fas fa-star text-4xl text-white"></i>
+                        </div>
+                        <h3 class="text-2xl font-semibold text-white mb-3">Uncompromised Quality</h3>
+                        <p class="text-gray-300 leading-relaxed">Every item is hand-picked for its superior quality, durability, and exceptional design.</p>
+                    </div>
+
+                    <!-- Feature 3 -->
+                    <div class="glassmorphism p-8 text-center flex flex-col items-center group transform hover:-translate-y-2 transition-transform duration-300">
+                        <div class="p-4 rounded-full bg-gradient-to-br from-green-500 to-teal-500 mb-6 shadow-xl group-hover:from-green-600 group-hover:to-teal-600 transition-all">
+                            <i class="fas fa-headset text-4xl text-white"></i>
+                        </div>
+                        <h3 class="text-2xl font-semibold text-white mb-3">Dedicated Support</h3>
+                        <p class="text-gray-300 leading-relaxed">Our friendly customer service team is always ready to assist you, ensuring a seamless shopping experience.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Newsletter Signup / Call to Action -->
+        <section class="py-16 md:py-24 bg-slate-800">
+            <div class="container mx-auto px-4 md:px-8 lg:px-16 text-center">
+                <div class="glassmorphism p-8 md:p-12 max-w-3xl mx-auto border-4 border-dashed border-violet-500/50">
+                    <h2 class="text-3xl md:text-4xl font-extrabold mb-6 text-white bg-clip-text text-transparent bg-gradient-to-r from-pink-400 to-violet-400">
+                        Never Miss a Trend!
+                    </h2>
+                    <p class="text-lg text-gray-300 mb-8">
+                        Join our community and get exclusive access to new arrivals, special offers, and style insights directly in your inbox.
+                    </p>
+                    <form class="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
+                        <input type="email" placeholder="Enter your email address" aria-label="Email address for newsletter"
+                               class="flex-grow p-4 rounded-full bg-slate-700 border border-slate-600 text-white placeholder-gray-400 focus:ring-2 focus:ring-violet-500 focus:border-transparent transition-all duration-300 outline-none">
+                        <button type="submit"
+                                class="bg-gradient-to-r from-violet-600 to-indigo-600 hover:from-violet-700 hover:to-indigo-700 text-white font-bold py-4 px-8 rounded-full shadow-lg transform hover:scale-105 transition-all duration-300">
+                            Subscribe Now
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials -->
+        <section class="py-16 md:py-24 px-4 md:px-8 lg:px-16 bg-slate-900">
+            <div class="container mx-auto">
+                <h2 class="text-3xl md:text-5xl font-extrabold text-center mb-12 md:mb-16 text-white bg-clip-text text-transparent bg-gradient-to-r from-violet-400 to-pink-400">
+                    What Our Customers Say
+                </h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Testimonial 1 -->
+                    <div class="glassmorphism p-8 text-center flex flex-col items-center">
+                        <img src="https://image.pollinations.ai/prompt/professional%20portrait%20woman%20smiling%20diverse?width=100&height=100&nologo=true"
+                             alt="Customer Avatar Emily R."
+                             class="w-24 h-24 rounded-full object-cover mb-6 border-4 border-violet-500 shadow-lg"
+                             loading="lazy" decoding="async">
+                        <p class="text-gray-300 italic mb-6">
+                            "TrendyMart has completely transformed my style! The gadgets are cutting-edge, and the clothes are so unique and high quality. Truly my go-to store now."
+                        </p>
+                        <h4 class="text-xl font-semibold text-white">Emily R.</h4>
+                        <p class="text-violet-400 text-sm">Fashion Enthusiast</p>
+                    </div>
+
+                    <!-- Testimonial 2 -->
+                    <div class="glassmorphism p-8 text-center flex flex-col items-center">
+                        <img src="https://image.pollinations.ai/prompt/professional%20portrait%20man%20glasses%20diverse?width=100&height=100&nologo=true"
+                             alt="Customer Avatar David S."
+                             class="w-24 h-24 rounded-full object-cover mb-6 border-4 border-pink-500 shadow-lg"
+                             loading="lazy" decoding="async">
+                        <p class="text-gray-300 italic mb-6">
+                            "As a tech lover, TrendyMart's gadget selection is unmatched. Always find the newest tech here, and their customer service is top-notch. Highly recommend!"
+                        </p>
+                        <h4 class="text-xl font-semibold text-white">David S.</h4>
+                        <p class="text-pink-400 text-sm">Tech Innovator</p>
+                    </div>
+
+                    <!-- Testimonial 3 -->
+                    <div class="glassmorphism p-8 text-center flex flex-col items-center">
+                        <img src="https://image.pollinations.ai/prompt/professional%20portrait%20young%20woman%20smiling%20urban?width=100&height=100&nologo=true"
+                             alt="Customer Avatar Sarah L."
+                             class="w-24 h-24 rounded-full object-cover mb-6 border-4 border-indigo-500 shadow-lg"
+                             loading="lazy" decoding="async">
+                        <p class="text-gray-300 italic mb-6">
+                            "I always struggled to find unique accessories. TrendyMart has an incredible range that perfectly complements my look. Fast shipping too!"
+                        </p>
+                        <h4 class="text-xl font-semibold text-white">Sarah L.</h4>
+                        <p class="text-indigo-400 text-sm">Style Blogger</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer id="contact" class="bg-slate-900 border-t border-gray-700/50 py-12 px-4 md:px-8 lg:px-16">
+        <div class="container mx-auto grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div>
+                <a href="#" class="flex items-center space-x-2 text-white text-2xl font-bold mb-4">
+                    <i class="fas fa-store-alt text-violet-400"></i>
+                    <span>TrendyMart</span>
+                </a>
+                <p class="text-gray-400 text-sm">Your ultimate destination for trendy clothing, unique accessories, and innovative gadgets.</p>
+                <div class="flex space-x-4 mt-6">
+                    <a href="#" aria-label="Facebook" class="text-gray-400 hover:text-violet-400 transform hover:scale-110 transition-transform"><i class="fab fa-facebook-f text-xl"></i></a>
+                    <a href="#" aria-label="Twitter" class="text-gray-400 hover:text-violet-400 transform hover:scale-110 transition-transform"><i class="fab fa-twitter text-xl"></i></a>
+                    <a href="#" aria-label="Instagram" class="text-gray-400 hover:text-violet-400 transform hover:scale-110 transition-transform"><i class="fab fa-instagram text-xl"></i></a>
+                    <a href="#" aria-label="LinkedIn" class="text-gray-400 hover:text-violet-400 transform hover:scale-110 transition-transform"><i class="fab fa-linkedin-in text-xl"></i></a>
+                </div>
+            </div>
+
+            <div>
+                <h4 class="text-xl font-semibold text-white mb-5">Quick Links</h4>
+                <ul class="space-y-3">
+                    <li><a href="#categories" class="text-gray-400 hover:text-violet-400 transition-colors duration-200">Categories</a></li>
+                    <li><a href="#products" class="text-gray-400 hover:text-violet-400 transition-colors duration-200">New Arrivals</a></li>
+                    <li><a href="#about" class="text-gray-400 hover:text-violet-400 transition-colors duration-200">About Us</a></li>
+                    <li><a href="#" class="text-gray-400 hover:text-violet-400 transition-colors duration-200">FAQs</a></li>
+                    <li><a href="#" class="text-gray-400 hover:text-violet-400 transition-colors duration-200">Returns</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h4 class="text-xl font-semibold text-white mb-5">Support</h4>
+                <ul class="space-y-3">
+                    <li><a href="#" class="text-gray-400 hover:text-violet-400 transition-colors duration-200">Contact Us</a></li>
+                    <li><a href="#" class="text-gray-400 hover:text-violet-400 transition-colors duration-200">Shipping Info</a></li>
+                    <li><a href="#" class="text-gray-400 hover:text-violet-400 transition-colors duration-200">Privacy Policy</a></li>
+                    <li><a href="#" class="text-gray-400 hover:text-violet-400 transition-colors duration-200">Terms of Service</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h4 class="text-xl font-semibold text-white mb-5">Contact Info</h4>
+                <address class="text-gray-400 space-y-3 not-italic">
+                    <p><i class="fas fa-map-marker-alt mr-2 text-violet-400"></i> 123 Trendy Lane, Style City, SC 90210</p>
+                    <p><i class="fas fa-phone-alt mr-2 text-violet-400"></i> +1 (555) 123-4567</p>
+                    <p><i class="fas fa-envelope mr-2 text-violet-400"></i> support@trendymart.com</p>
+                </address>
+            </div>
+        </div>
+        <div class="text-center text-gray-500 text-sm mt-12 pt-8 border-t border-gray-700/50">
+            &copy; <span id="current-year"></span> TrendyMart. All rights reserved.
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const closeMobileMenuButton = document.getElementById('close-mobile-menu');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.remove('hidden');
+            document.body.classList.add('overflow-hidden'); // Prevent scrolling body when menu is open
+        });
+
+        closeMobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.add('hidden');
+            document.body.classList.remove('overflow-hidden');
+        });
+
+        // Close mobile menu when a link is clicked
+        document.querySelectorAll('#mobile-menu a').forEach(item => {
+            item.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                document.body.classList.remove('overflow-hidden');
+            });
+        });
+
+        // Dynamic Copyright Year
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+    </script>
+
+    <!-- Analytics Injection (CRITICAL) -->
+    <script src="https://alphasite.saadsafi.dev/tracker.js" async></script>
+</body>
+</html>
